@@ -82,6 +82,38 @@ The network section indicates that this process attempted to establish multiple 
 Utilize the timeline to track when the process was created and when it established network connections
 ![2025-02-12 16_03_07-hideonbush - window-vm localdomain - Timeline - LimaCharlie](https://github.com/user-attachments/assets/6077fd3e-c5b4-4efd-a6bb-446dcec99b8a)
 
+## Perform Memory Dump within Sliver Session and Build a Detection Rule
+![2025-02-12 16_23_02-So you want to be a SOC Analyst_ Part 3 - by Eric Capuano](https://github.com/user-attachments/assets/fe78736d-c751-494a-a274-33452cdd4542)
+- Adversaries likes to target lsass.exe for credential dump because it stores user and domain admin credentials
+- Build a detection rule(D&R) from the detected events in timeline
+- RULE: Focus only on sensitive events where the victim or target process ends with lsass.exe, and generate a report whenever this detection happens.
+  
+![2025-02-12 16_26_11-blwhit_EDR-Attack-and-Defense_ Cyber Attack_Defense home lab using Sliver, LimaC](https://github.com/user-attachments/assets/bb299635-d6da-47f9-b39c-cdbe287f2a9a)
+
+## Let's now Block Attacks instead of Generating Alerts
+Started a remote shell within the Sliver session to run the command (vssadmin delete shadowns /all)
+- attractive options for adversaries because it will delete all recovery files and file system (good for ransomware)
+- still have an active shell after this command
+
+<img width="551" alt="Screenshot 2025-02-12 190600" src="https://github.com/user-attachments/assets/996d3009-7e6a-453c-a4f5-757017a3fda4" />
+
+LimaCharlie detected that activity with their default Sigma Rules
+![2025-02-12 16_35_52-](https://github.com/user-attachments/assets/cbeaa68c-bb11-4bd0-85b3-c6447aa1457d)
+![2025-02-12 16_36_05-hideonbush - window-vm localdomain - Timeline - LimaCharlie](https://github.com/user-attachments/assets/d090ccd4-ecad-4cb5-bb04-337ceb308d21)
+
+View event timeline and craft a D&R rule for this event
+- action: report (this section simply write a report to the detection tab)
+- action:task (this section is what is reponsible for killing the parent process responsible with deny tree the process command
+
+![2025-02-12 16_37_49-hideonbush - window-vm localdomain - Timeline - LimaCharlie](https://github.com/user-attachments/assets/6afcd735-badd-4a16-beac-c7549f0c3b79)
+
+After rerunning the same command, D&R has successfully terminated the parent process 
+- Remote shell fails to return anything
+<img width="291" alt="Screenshot 2025-02-12 190748" src="https://github.com/user-attachments/assets/01b5e5dd-4b70-4d6f-88cb-b5ecdac57b4c" />
+
+
+
+
 
 
 
