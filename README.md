@@ -12,7 +12,7 @@ Eric Capuano's Guide: https://blog.ecapuano.com/p/so-you-want-to-be-a-soc-analys
 - Working with Sliver, an open-source C2 framework for red teaming
 - Basic understanding how attackers use C2 channels to maintain access
 - Analyzing system logs for signs of compromise
-- Investigating cybersecurity incidents and mitigating threats
+- Tune false positives alerts in LimaCharlie
 
 
 ### Tools Used
