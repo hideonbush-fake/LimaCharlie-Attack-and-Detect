@@ -1,4 +1,4 @@
-# EDR-Attack-and-Defense
+# LimaCharlie-Attack/Defense
 
 ## Objective
 This lab is designed to replicate a real-world cyber attack scenario while evaluating endpoint detection and response (EDR) capabilities. By following Eric Capuano's online guide, I will configure virtual machines to represent both the attacking and victim systems. The attack machine will leverage the 'Sliver' command and control (C2) framework to conduct an attack against a Windows endpoint. To counteract and analyze the attack, the Windows machine will be equipped with 'LimaCharlie' as its EDR solution. This setup will allow for a hands-on exploration of cyber threats, detection techniques, and response strategies in a controlled environment.
