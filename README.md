@@ -111,6 +111,37 @@ After rerunning the same command, D&R has successfully terminated the parent pro
 - Remote shell fails to return anything
 <img width="291" alt="Screenshot 2025-02-12 190748" src="https://github.com/user-attachments/assets/01b5e5dd-4b70-4d6f-88cb-b5ecdac57b4c" />
 
+## Tune false positives w/LimaCharlie
+Created a high-noise rule that triggers on any new scvhost.exe process creation
+
+![2025-03-05 14_38_25-hideonbush - D R Rules - LimaCharlie](https://github.com/user-attachments/assets/180da8be-fd1e-43c2-9893-a1704b2084d5)
+
+For the "Suspicious svchost execution" detected event, I want to mark the detection as a false positive.
+
+![2025-03-05 14_41_22-hideonbush - Detections - LimaCharlie](https://github.com/user-attachments/assets/71ec7190-2dd0-4628-94a8-db93526e27ce)
+![2025-03-05 14_44_11-hideonbush - Detections - LimaCharlie](https://github.com/user-attachments/assets/4ec2633e-121e-41f3-8e93-99443f9b3d74)
+
+If a detection matches these rules, exclude it from appearing in the detection report.
+- "C:\WINDOWS\system32\svchost.exe" = the correct file path execution for a svchost.exe
+- If a commandline contains "-k" = svchost.exe commandline contains -k
+
+![2025-03-05 14_48_44-hideonbush - Detections - LimaCharlie](https://github.com/user-attachments/assets/aea1f6cd-7855-46bb-ae93-b0ec01e00c73)
+
+Test the created false positive rule with the past svchost.exe detection
+
+![2025-03-05 14_51_37-hideonbush - False Positive Rules - LimaCharlie](https://github.com/user-attachments/assets/e0130488-5682-4867-b3d8-09293bc73cb0)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
